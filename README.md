@@ -23,4 +23,4 @@ meteor
 ```bash
 localhost:3000/
 ```
-This is the default listing port for the application.
+This is the default listening port for the application.
