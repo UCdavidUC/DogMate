@@ -1,12 +1,14 @@
-# dogmate
+# DogMate
 
-## Installation
+## Installation Guide
+
+
 * Install git bash for Windows if you have Windows only
 * Set up NodeJS development environment
-* Install meteor 
-  ```bash
-  curl https://install.meteor.com/ | sh
-  ```
+* Install meteor
+```bash
+curl https://install.meteor.com/ | sh
+```
 * Clone the git repository project in a local directory
 ```bash
 git clone https://github.com/UCdavidUC/dogmate.git
