@@ -8,8 +8,35 @@
         <%- include('../_partials/internal/_navigation.html') %>
         <div class="container-fluid">
             <div class="page-header">
-                <h1 align="center"><%- title %></h1>
+                <h1
+                ><%- title %></h1>
             </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora de inicio</th>
+                        <th>Hora de fin</th>
+                        <th>Duración (hh:mm)</th>
+                        <th>Distancia recorrida (mts.)</th>
+                        <th>Costo ($)</th>
+                        <th>Factor de cobro</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/04/2017</td>
+                        <td>14:12</td>
+                        <td>14:42</td>
+                        <td>00:30</td>
+                        <td>350.02</td>
+                        <td>50.00</td>
+                        <td>1.00</td>
+                        <td><a href="#" class="btn btn-info btn-sm">Ver detalle</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
