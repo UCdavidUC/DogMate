@@ -1,17 +1,116 @@
-<div class="modal fade" id="register" role="dialog" aria-labelledby="registerLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="registerLabel">Registro</h4>
+<div role="tabpanel" class="tab-pane fade" id="registro">
+    <div class="page-header">
+        <h1 align="center">Registro</h1>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="nombre" class="col-sm-4 control-label">Nombre</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required="required"/>
             </div>
-            <div class="modal-body">
-                
+        </div>
+        <div class="form-group">
+            <label for="apellido-paterno" class="col-sm-4 control-label">Apellido Paterno</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="apellido-paterno" name="apellido-paterno" placeholder="Apellido Paterno" required/>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+        <div class="form-group">
+            <label for="apellido-materno" class="col-sm-4 control-label">Apellido Materno</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="apellido-materno" name="apellido-materno" placeholder="Apellido Materno"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-4 control-label">Email</label>
+            <div class="col-sm-8">
+                <input type="email" id="email" name="email" placeholder="Email" class="form-control" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-4 control-label">Contrase&ntilde;a</label>
+            <div class="col-sm-8">
+                <input type="password" id="password" name="password" placeholder="Contrase&ntilde;a" class="form-control" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password-conf" class="col-sm-4 control-label">Confirma tu contrase&ntilde;a</label>
+            <div class="col-sm-8">
+                <input type="password" id="password-conf" name="password-conf" placeholder="Confirma tu contrase&ntilde;a" class="form-control" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password-conf" class="col-sm-4 control-label">Fecha de nacimiento</label>
+            <div class="col-sm-8">
+                <input type="text" id="fecha-nac" name="password-conf" placeholder="Fecha de nacimiento" class="form-control" maxlength="10" required/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="edad" class="col-sm-4 control-label">Edad</label>
+            <div class="col-sm-8">
+                <input type="text" id="edad" name="edad" placeholder="0" class="form-control" disabled/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="celular" class="col-sm-4 control-label">Número de celular</label>
+            <div class="col-sm-8">
+                <input type="number" id="celular" name="celular" placeholder="5511223344" class="form-control" maxlength="10"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="peso" class="col-sm-4 control-label">Peso</label>
+            <div class="col-sm-1">
+                <input type="number" id="peso" name="peso" placeholder="1.70" class="form-control" maxlength="4"/><label>Kilogramos</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="estatura" class="col-sm-4 control-label">Estatura</label>
+            <div class="col-sm-1">
+                <input type="number" id="estatura" name="estatura" placeholder="60.00" class="form-control" maxlength="5"/><label>Metros</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-6">
+        <div class="btn-group btn-group-justified">
+            <div class="btn-group" role="group">
+                <a href="/" class="btn btn-default">Cancelar</a>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-success">Enviar</a>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(function() {
+        $("#fecha-nac").datepicker();
+        $("#edad").calculaedad(function(){
+            var fechaNac = new Date($("fecha-nac").val());
+            var date = new Date($.now());
+            var edad = date.getFullYear() - fechaNac.getFullYear();
+            if (m < 0 || (m === 0 && date.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            $("#edad").val(edad);
+            return edad;
+        });
+    });
+</script>
+<script>
+    function insertUser(nombre, apellido_p, apellido_m, email, contrasena, fecha_nac, edad, celular, peso, estatura) {
+        var fecha = new Date(fecha_nac);
+        var pass = md5("cyphered", md5("dogemate", constrasena));
+        firebase.database().ref('users/' + userId).set({
+            nombre: nombre,
+            apellido_p: apellido_p,
+            apellido_m: apellido_m,
+            email: email,
+            password: pass,
+            fecha_nac: fecha,
+            edad: edad,
+            celular: celular,
+            peso: peso,
+            estatura: estatura
+        })
+    }
+</script>

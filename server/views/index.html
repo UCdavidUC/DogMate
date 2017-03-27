@@ -3,16 +3,28 @@
 	<head>
 		<title><%= title %></title>
 		<%- include('_partials/header/_header.html') %>
+		<script>
+			src=""
+		</script>
+		<script>
+			var config = {
+				apiKey: "AIzaSyDdHnF9X9YsCTsNt8d445bgtUh1fc7hkZc",
+				authDomain: "dogemate-2351f.firebaseapp.com",
+				databaseURL: "https://dogemate-2351f.firebaseio.com/",
+				storageBucket: "dogemate-2351f.appspot.com"
+			};
+			firebase.initializeApp(config);
+		</script>
 	</head>
 	<body>
 		<%- include('_partials/access/_navigation.html') %>
 		<div class="container">
-			<%- include('_partials/access/_register.html') %>
 			<%- include('_partials/access/_login.html') %>
 			<div class="tab-content">
 				<%- include('_partials/access/_inicio.html') %>
 				<%- include('_partials/access/_funcionalidad.html') %>
 				<%- include('_partials/access/_contacto.html') %>
+				<%- include('_partials/access/_register.html') %>
 			</div>
 		</div>
 	</body>
