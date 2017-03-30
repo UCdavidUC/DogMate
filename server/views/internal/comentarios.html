@@ -7,6 +7,34 @@
     <body>
         <%- include('../_partials/internal/_navigation.html') %>
         <div class="container">
+            <div class="page-header">
+                <h1 align="center">Deja un Comentario</h1>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label for="textArea" class="col-lg-2 control-label">Escribe aquí tu comentario</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="3" id="textArea"></textarea>
+                        <span class="help-block">Gracias por enviar tu comentario, nuestros administradores te responderan lo antes posible.</span>
+                    </div>
+                    <div class="col-lg-10">
+                        <label for="email" class="col-sm-4 control-label">Email</label>
+                        <div class="col-sm-8">
+                            <input type="email" id="email" name="email" placeholder="Email" class="form-control" required="required"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-6">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group" role="group">
+                        <a href="/" class="btn btn-default">Cancelar</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="submit" class="btn btn-success">Enviar</a>
+                    </div>
+                </div>
+            </div>
         </div>
         <%- include('../_partials/access/_footer.html') %>
     </body>
